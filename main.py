@@ -11,6 +11,9 @@ def create_tabbed_window(no_of_terminals, commands):
     no_of_tabs = m.ceil(int(no_of_terminals)/4)
     # print(no_of_tabs)
     cwd = os.getcwd()
+    print(cwd)
+    terminal_name = 'tkterminal$'
+    terminal_name = cwd.split('/')[-1:][0] + '$'
     root = tk.Tk()
     root.title("Tab Widget")
     tabControl = ttk.Notebook(root)
@@ -36,7 +39,6 @@ def create_tabbed_window(no_of_terminals, commands):
             if command_index >= 0 and command_index < len(commands):
                 cmd = commands[command_index]
                 command_index += 1
-            terminal_name = 'tkterminal$'
             if len(cmd) > 0:
                 tmp1 = cmd.split(';')
                 if len(tmp1) > 0:
